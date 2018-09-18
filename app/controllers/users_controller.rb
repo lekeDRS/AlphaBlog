@@ -37,7 +37,10 @@ class UsersController < ApplicationController
     def index
         @users = User.paginate(page: params[:page], per_page: 5)
     end
-
+    
+    def admin_toggle
+        @user.toggle!(:admin)
+    end
 
     private
     def user_params
